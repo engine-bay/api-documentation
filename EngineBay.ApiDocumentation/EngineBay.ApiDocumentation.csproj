@@ -2,18 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>EngineBay.ModuleTemplate</RootNamespace>
+    <RootNamespace>EngineBay.ApiDocumentation</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageId>EngineBay.ModuleTemplate</PackageId>
+    <PackageId>EngineBay.ApiDocumentation</PackageId>
     <Version>0.0.2</Version>
     <Authors>EngineBay</Authors>
     <Company>EngineBay</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/engine-bay/module-template</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/engine-bay/module-template</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/engine-bay/api-documentation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/engine-bay/api-documentation</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <TargetType>library</TargetType>
     <IsPackable>true</IsPackable>
@@ -27,6 +27,8 @@
 
   <ItemGroup>
     <PackageReference Include="EngineBay.Core" Version="3.0.0" />
+    <PackageReference Include="EngineBay.Authentication" Version="0.8.1" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.18.2" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -36,5 +38,5 @@
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="\" />
     <None Include="../LICENSE.txt" Pack="true" PackagePath="" />
-</ItemGroup>
+  </ItemGroup>
 </Project>

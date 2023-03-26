@@ -1,3 +1,3 @@
-# EngineBay.ModuleTemplate
+# EngineBay.ApiDocumentation
 
-ModuleTemplate module for EngineBay published to [EngineBay.ModuleTemplate](https://www.nuget.org/packages/EngineBay.ModuleTemplate/) on NuGet.
+ApiDocumentation module for EngineBay published to [EngineBay.ApiDocumentation](https://www.nuget.org/packages/EngineBay.ApiDocumentation/) on NuGet.
