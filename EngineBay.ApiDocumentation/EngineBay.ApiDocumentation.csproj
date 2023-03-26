@@ -26,7 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EngineBay.Core" Version="3.0.0" />
+    <PackageReference Include="EngineBay.Core" Version="4.0.0" />
     <PackageReference Include="EngineBay.Authentication" Version="0.8.1" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.18.2" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">

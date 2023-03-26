@@ -41,5 +41,21 @@ namespace EngineBay.ApiDocumentation
         {
             return endpoints;
         }
+
+        public WebApplication AddMiddleware(WebApplication app)
+        {
+            // Register the Swagger generator and the Swagger UI middlewares
+            if (ApiDocumentationConfiguration.IsApiDocumentationEnabled())
+            {
+                // todo would be nice to move this down into a Module level Application middleware configuration perhaps?
+                app.UseOpenApi();
+                app.UseSwaggerUi3(x =>
+                {
+                    x.DocumentTitle = "EngineBay API Documentation";
+                });
+            }
+
+            return app;
+        }
     }
 }
