@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>EngineBay.ApiDocumentation</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.0</Version>
     <Authors>EngineBay</Authors>
     <Company>EngineBay</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
