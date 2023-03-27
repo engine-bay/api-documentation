@@ -33,6 +33,8 @@ namespace EngineBay.ApiDocumentation
                 });
             }
 
+            Console.WriteLine($"Registered {nameof(ApiDocumentationModule)}");
+
             return services;
         }
 

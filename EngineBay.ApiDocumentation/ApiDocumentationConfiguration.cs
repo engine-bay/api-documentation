@@ -17,6 +17,8 @@ namespace EngineBay.ApiDocumentation
                 return true;
             }
 
+            Console.WriteLine($"Warning: {EnvironmentVariableConstants.APIDOCUMENTATIONENABLED} was configured with an unrecognized value of '{apiDocumentationEnvironmentVariable}'.");
+
             return false;
         }
     }
