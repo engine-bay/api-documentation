@@ -41,6 +41,11 @@ namespace EngineBay.ApiDocumentation
         /// <inheritdoc/>
         public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
         {
+            endpoints.MapPost("/modules/api-documentation", (CancellationToken cancellation) =>
+                    {
+                        return Results.Ok(ApiDocumentationConfiguration.IsApiDocumentationEnabled());
+                    }).AllowAnonymous();
+
             return endpoints;
         }
 
@@ -49,7 +54,6 @@ namespace EngineBay.ApiDocumentation
             // Register the Swagger generator and the Swagger UI middlewares
             if (ApiDocumentationConfiguration.IsApiDocumentationEnabled())
             {
-                // todo would be nice to move this down into a Module level Application middleware configuration perhaps?
                 app.UseOpenApi();
                 app.UseSwaggerUi3(x =>
                 {
