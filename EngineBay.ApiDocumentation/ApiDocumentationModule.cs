@@ -33,19 +33,12 @@ namespace EngineBay.ApiDocumentation
                 });
             }
 
-            Console.WriteLine($"Registered {nameof(ApiDocumentationModule)}");
-
             return services;
         }
 
         /// <inheritdoc/>
         public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
         {
-            endpoints.MapPost("/modules/api-documentation", (CancellationToken cancellation) =>
-                    {
-                        return Results.Ok(ApiDocumentationConfiguration.IsApiDocumentationEnabled());
-                    }).AllowAnonymous();
-
             return endpoints;
         }
 
