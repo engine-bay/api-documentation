@@ -5,10 +5,9 @@ namespace EngineBay.ApiDocumentation
     using NSwag;
     using NSwag.Generation.Processors.Security;
 
-    public class ApiDocumentationModule : IModule
+    public class ApiDocumentationModule : BaseModule
     {
-        /// <inheritdoc/>
-        public IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
+        public override IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
         {
             if (ApiDocumentationConfiguration.IsApiDocumentationEnabled())
             {
@@ -18,8 +17,8 @@ namespace EngineBay.ApiDocumentation
                 // add OpenAPI v3 document
                 services.AddOpenApiDocument(options =>
                 {
-                    options.Title = "EngineBay OpenAPI v3 Documentation";
-                    options.Description = "Test description";
+                    options.Title = "EngineBay API Documentation";
+                    options.Description = "EngineBay OpenAPI v3 integration documentation";
                     options.AddSecurity("Bearer", Enumerable.Empty<string>(), new OpenApiSecurityScheme
                     {
                         Type = OpenApiSecuritySchemeType.Http,
@@ -36,13 +35,7 @@ namespace EngineBay.ApiDocumentation
             return services;
         }
 
-        /// <inheritdoc/>
-        public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
-        {
-            return endpoints;
-        }
-
-        public WebApplication AddMiddleware(WebApplication app)
+        public override WebApplication AddMiddleware(WebApplication app)
         {
             // Register the Swagger generator and the Swagger UI middlewares
             if (ApiDocumentationConfiguration.IsApiDocumentationEnabled())
