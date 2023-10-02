@@ -27,11 +27,11 @@
     <IsTrimmable>true</IsTrimmable>
   </PropertyGroup>
 
-  <ItemGroup Condition="$(Configuration)=='Debug'">
+  <ItemGroup Condition="$(Configuration)=='Dev'">
     <ProjectReference Include="../../core\EngineBay.Core/EngineBay.Core.csproj" />
     <ProjectReference Include="../../authentication/EngineBay.Authentication/EngineBay.Authentication.csproj" />
   </ItemGroup>
-  <ItemGroup Condition="$(Configuration)!='Debug'">
+  <ItemGroup Condition="$(Configuration)!='Dev'">
     <PackageReference Include="EngineBay.Core" Version="6.1.0" />
     <PackageReference Include="EngineBay.Authentication" Version="0.11.7" />
   </ItemGroup>
