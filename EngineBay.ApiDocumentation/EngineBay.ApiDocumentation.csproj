@@ -36,7 +36,7 @@
         </When>
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="EngineBay.Core" Version="6.2.5" />
+                <PackageReference Include="EngineBay.Core" Version="7.0.0" />
                 <PackageReference Include="EngineBay.Authentication" Version="1.0.2" />
             </ItemGroup>
         </Otherwise>
