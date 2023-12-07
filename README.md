@@ -12,7 +12,7 @@ This module will add middleware to generate and expose [Swagger UI](https://swag
 
 ## Usage
 
-The Swagger documentation is generated entirely automatically if this module is enabled.
+The Swagger documentation is generated entirely automatically if this module is enabled. 
 
 If you wish to browse the documentation generated for your project, you can start the application and visit `/swagger/index.html`.
 
