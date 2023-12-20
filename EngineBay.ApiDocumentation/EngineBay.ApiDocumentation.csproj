@@ -25,26 +25,24 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <IsTrimmable>true</IsTrimmable>
+        <NoWarn>NU5104</NoWarn>
     </PropertyGroup>
 
     <Choose>
         <When Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'">
             <ItemGroup>
                 <ProjectReference Include="../../core\EngineBay.Core/EngineBay.Core.csproj" />
-                <ProjectReference
-                    Include="../../authentication/EngineBay.Authentication/EngineBay.Authentication.csproj" />
             </ItemGroup>
         </When>
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="EngineBay.Core" Version="9.0.1" />
-                <PackageReference Include="EngineBay.Authentication" Version="2.2.0" />
+                <PackageReference Include="EngineBay.Core" Version="9.0.4" />
             </ItemGroup>
         </Otherwise>
     </Choose>
 
     <ItemGroup>
-        <PackageReference Include="NSwag.AspNetCore" Version="13.20.0" />
+        <PackageReference Include="NSwag.AspNetCore" Version="14.0.0-preview012" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
