@@ -1,8 +1,6 @@
 namespace EngineBay.ApiDocumentation
 {
-    using EngineBay.Authentication;
     using EngineBay.Core;
-    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using NSwag;
     using NSwag.Generation.Processors.Security;
 
@@ -15,7 +13,7 @@ namespace EngineBay.ApiDocumentation
                 // Register the Swagger services
                 services.AddEndpointsApiExplorer();
 
-                var authenticationType = AuthenticationConfiguration.GetAuthenticationMethod();
+                var authenticationType = ApiDocumentationConfiguration.GetAuthenticationMethod();
 
                 // add OpenAPI v3 document
                 switch (authenticationType)
@@ -28,7 +26,7 @@ namespace EngineBay.ApiDocumentation
                             options.AddSecurity("Bearer", Enumerable.Empty<string>(), new OpenApiSecurityScheme
                             {
                                 Type = OpenApiSecuritySchemeType.Http,
-                                Scheme = JwtBearerDefaults.AuthenticationScheme,
+                                Scheme = "Bearer",
                                 BearerFormat = "JWT",
                                 Description = "Type into the textbox: {your JWT token}.",
                             });
@@ -70,7 +68,7 @@ namespace EngineBay.ApiDocumentation
             if (ApiDocumentationConfiguration.IsApiDocumentationEnabled())
             {
                 app.UseOpenApi();
-                app.UseSwaggerUi3(x =>
+                app.UseSwaggerUi(x =>
                 {
                     x.DocumentTitle = "EngineBay API Documentation";
                 });
