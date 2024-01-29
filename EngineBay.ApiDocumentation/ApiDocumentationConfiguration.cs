@@ -4,29 +4,19 @@ namespace EngineBay.ApiDocumentation
     {
         public static AuthenticationTypes GetAuthenticationMethod()
         {
-            var authenticationMethodEnvironmentVariable = Environment.GetEnvironmentVariable(EnvironmentVariableConstants.AUTHENTICATIONMETHOD);
-
-            if (string.IsNullOrEmpty(authenticationMethodEnvironmentVariable))
+            var authenticationMethodEnvironmentVariable = Environment.GetEnvironmentVariable(EnvironmentVariableConstants.APIDOCUMENTATIONAUTHENTICATIONMETHOD);
+            if (!string.IsNullOrEmpty(authenticationMethodEnvironmentVariable))
             {
-                Console.WriteLine($"Warning: {EnvironmentVariableConstants.AUTHENTICATIONMETHOD} not configured, using default '{DefaultApiDocumentationConfigurationConstants.DefaultAuthentication}'.");
-                return DefaultApiDocumentationConfigurationConstants.DefaultAuthentication;
-            }
-
-            var authenticationType = (AuthenticationTypes)Enum.Parse(typeof(AuthenticationTypes), authenticationMethodEnvironmentVariable);
-
-            if (!Enum.IsDefined(typeof(AuthenticationTypes), authenticationType) | authenticationType.ToString().Contains(',', StringComparison.InvariantCulture))
-            {
-                Console.WriteLine($"Warning: '{authenticationMethodEnvironmentVariable}' is not a valid {EnvironmentVariableConstants.AUTHENTICATIONMETHOD} configuration option. Valid options are: ");
-                foreach (string name in Enum.GetNames(typeof(AuthenticationTypes)))
+                AuthenticationTypes authenticationType;
+                var success = Enum.TryParse(authenticationMethodEnvironmentVariable, out authenticationType);
+                if (success)
                 {
-                    Console.Write(name);
-                    Console.Write(", ");
+                    return authenticationType;
                 }
-
-                throw new ArgumentException($"Invalid {EnvironmentVariableConstants.AUTHENTICATIONMETHOD} configuration.");
             }
 
-            return authenticationType;
+            Console.WriteLine($"Warning: {EnvironmentVariableConstants.APIDOCUMENTATIONAUTHENTICATIONMETHOD} not configured, using default '{DefaultApiDocumentationConfigurationConstants.DefaultAuthentication}'.");
+            return DefaultApiDocumentationConfigurationConstants.DefaultAuthentication;
         }
 
         public static bool IsApiDocumentationEnabled()
