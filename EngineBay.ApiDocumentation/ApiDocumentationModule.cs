@@ -36,7 +36,6 @@ namespace EngineBay.ApiDocumentation
                         });
                         break;
                     case AuthenticationTypes.Basic:
-                        Console.WriteLine("Warning: no Basic authentication has been configured. The system is insecure.");
                         services.AddOpenApiDocument(options =>
                         {
                             options.Title = "EngineBay API Documentation";
@@ -47,14 +46,18 @@ namespace EngineBay.ApiDocumentation
                                 Type = OpenApiSecuritySchemeType.Http,
                                 Scheme = "basic",
                                 In = OpenApiSecurityApiKeyLocation.Header,
-                                Description = "Basic Authorization header using the Bearer scheme.",
+                                Description = "Basic Authorization header.",
                             });
                             options.OperationProcessors.Add(
                             new AspNetCoreOperationSecurityScopeProcessor("Basic"));
                         });
                         break;
                     case AuthenticationTypes.None:
-                        Console.WriteLine("Warning: no authentication has been configured. The system is insecure.");
+                        services.AddOpenApiDocument(options =>
+                        {
+                            options.Title = "EngineBay API Documentation";
+                            options.Description = "EngineBay OpenAPI v3 integration documentation";
+                        });
                         break;
                 }
             }

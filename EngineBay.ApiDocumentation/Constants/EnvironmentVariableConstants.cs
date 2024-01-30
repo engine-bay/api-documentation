@@ -4,6 +4,6 @@ namespace EngineBay.ApiDocumentation
     {
         public const string APIDOCUMENTATIONENABLED = "API_DOCUMENTATION_ENABLED";
 
-        public const string AUTHENTICATIONMETHOD = "AUTHENTICATION_METHOD";
+        public const string APIDOCUMENTATIONAUTHENTICATIONMETHOD = "API_DOCUMENTATION_AUTHENTICATION_METHOD";
     }
 }
